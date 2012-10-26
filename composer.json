@@ -1,0 +1,16 @@
+{
+    "name": "cunningsoft/database",
+    "description": "Simple database wrapper",
+    "authors": [
+        {
+            "name": "Daniel Mecke",
+            "email": "daniel.mecke@cunningsoft.de"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Database": "src/" }
+    },
+    "require": {
+
+    }
+}
