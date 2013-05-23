@@ -1,4 +1,7 @@
 <?php
+
+use Doctrine\DBAL\Driver\Statement;
+
 class Database
 {
     private $database = null;
@@ -126,11 +129,12 @@ class Database
         return $data;
     }
 
-    private function replacePlaceholders($statement, $params)
+    private function replacePlaceholders(Statement $statement, $params)
     {
         $count = substr_count($params[0], '?');
         for ($i = 1; $i < $count + 1; $i++) {
-            $statement->bindValue($i, $params[$i]);
+            $type = is_integer($params[$i]) ? PDO::PARAM_INT : null;
+            $statement->bindValue($i, $params[$i], $type);
         }
         return $statement;
     }
